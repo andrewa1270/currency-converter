@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+.screen-elements{
+    margin-left: 5%;
+}
+
+body {
+    background-color: rgb(182, 178, 178);
+}
