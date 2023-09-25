@@ -8,9 +8,10 @@
 .screen {
     width: 520px;
     height: 650px;
-    background-color: white;
+    background-color: red;
     color: black;
     border: 2px solid black;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 
 }
 
