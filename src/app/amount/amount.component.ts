@@ -6,9 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./amount.component.css']
 })
 export class AmountComponent {
+  test: number | undefined
 
   constructor() {
 
   }
+
+  
 
 }

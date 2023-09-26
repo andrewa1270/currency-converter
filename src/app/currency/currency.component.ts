@@ -11,7 +11,7 @@ export class CurrencyComponent implements OnInit{
   }
 
   ngOnInit(){
-    
+
   }
 
 }
