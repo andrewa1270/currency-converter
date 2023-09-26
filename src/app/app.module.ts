@@ -7,6 +7,7 @@ import { ScreenComponent } from './screen/screen.component';
 import { CurrencySelectorComponent } from './currency-selector/currency-selector.component';
 import { AmountComponent } from './amount/amount.component';
 import { ExchangeRateComponent } from './exchange-rate/exchange-rate.component';
+import { CurrencyComponent } from './currency/currency.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ExchangeRateComponent } from './exchange-rate/exchange-rate.component';
     ScreenComponent,
     CurrencySelectorComponent,
     AmountComponent,
-    ExchangeRateComponent
+    ExchangeRateComponent,
+    CurrencyComponent
   ],
   imports: [
     BrowserModule,
