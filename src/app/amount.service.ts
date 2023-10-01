@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { CurrencyAPIServiceService } from './currency-api-service.service';
 
 @Injectable({
   providedIn: 'root'
@@ -7,13 +8,14 @@ export class AmountService {
 
   desiredAmount = "" 
   decimals = 0;
-  constructor() { 
+  converted = 0;
+  constructor(private apiService: CurrencyAPIServiceService) { 
   }
-
-  
 
   // Updates value of clicked variable upon each 
   update(character: KeyboardEvent){
+
+    //Adds character to existing string if its an integer
     if (character.code.substring(0,5) === "Digit"){
       this.desiredAmount += character.key;
     }
@@ -26,6 +28,7 @@ export class AmountService {
         return
       }
     } 
+
 
     if (character.key == "Backspace"){
       let lastValue = this.desiredAmount.charAt(this.desiredAmount.length -1) // Gets last character of string
@@ -40,8 +43,12 @@ export class AmountService {
       }
 
     }
+    //console.log(this.desiredAmount)
 
-    console.log(this.desiredAmount)
+    // Calls method that converts the value
+    this.converted = this.apiService.calculate(this.desiredAmount)
+    console.log(this.converted)
+
     
   }
 }

@@ -12,9 +12,7 @@ export class CurrencySelectorComponent implements OnInit{
   constructor(private http: HttpClient, private api: CurrencyAPIServiceService, public selectorService:CurrencySelectorService){ }
 
   ngOnInit(): void {
-    // this.api.getData().subscribe((response) => {
-    //   console.log(response)
-    // })
+    
       
   }
 
