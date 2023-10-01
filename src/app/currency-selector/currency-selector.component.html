@@ -3,10 +3,10 @@
     <div class="dropdown">
         <button class="dropdown-btn" id="selectorButton">Click</button>
         <div class="dropdown-content" id="currencySelect">
-            <a routerLink="#" id="usdTag" (click)="wasClicked('USD')">USD</a>
-            <a routerLink="#" id="eurTag" (click)="wasClicked('EUR')">EUR</a>
-            <a routerLink="#" id="jpyTag" (click)="wasClicked('JPY')">JPY</a>
-            <a routerLink="#" id="chfTag" (click)="wasClicked('CHF')">CHF</a>
+            <a routerLink="#" id="usdTag" (click)="selectorService.wasClicked('USD')">USD</a>
+            <a routerLink="#" id="eurTag" (click)="selectorService.wasClicked('EUR')">EUR</a>
+            <a routerLink="#" id="jpyTag" (click)="selectorService.wasClicked('JPY')">JPY</a>
+            <a routerLink="#" id="chfTag" (click)="selectorService.wasClicked('CHF')">CHF</a>
         </div>
     </div>
     <app-amount></app-amount>
