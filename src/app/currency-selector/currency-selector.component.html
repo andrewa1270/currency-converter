@@ -1,16 +1,14 @@
 <div class="screen-elements">
     <h2>Select a Currency</h2>
     <div class="dropdown">
-        <button class="dropdown-btn">Click</button>
+        <button class="dropdown-btn" id="selectorButton">Click</button>
         <div class="dropdown-content" id="currencySelect">
-            <a routerLink="#">USD</a>
-            <a routerLink="#">EUR</a>
-            <a routerLink="#">JPY</a>
-            <a routerLink="#">CHF</a>
+            <a routerLink="#" id="usdTag" (click)="wasClicked('USD')">USD</a>
+            <a routerLink="#" id="eurTag" (click)="wasClicked('EUR')">EUR</a>
+            <a routerLink="#" id="jpyTag" (click)="wasClicked('JPY')">JPY</a>
+            <a routerLink="#" id="chfTag" (click)="wasClicked('CHF')">CHF</a>
         </div>
     </div>
-    <!-- <input class="selected-currency-text"> -->
-    <!-- <input type="text" placeholder="dropdown incoming..."> -->
     <app-amount></app-amount>
 </div>
 

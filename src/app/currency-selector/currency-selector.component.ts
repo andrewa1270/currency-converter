@@ -9,7 +9,7 @@ import { CurrencyAPIServiceService } from '../currency-api-service.service';
 })
 export class CurrencySelectorComponent implements OnInit{
   constructor(private http: HttpClient, private api: CurrencyAPIServiceService){
-
+    let clicked;
   }
 
   ngOnInit(): void {
@@ -17,6 +17,17 @@ export class CurrencySelectorComponent implements OnInit{
       console.log(response)
     })
       
+  }
+
+  // sets a variable to the text of currency clicked
+  wasClicked(abbr: string){
+    let clicked = abbr;
+    const abbrID = document.getElementById('selectorButton');
+
+    if (abbrID){
+      abbrID.innerHTML = abbr;
+      console.log(abbrID.innerHTML);
+    }
   }
 
 }
