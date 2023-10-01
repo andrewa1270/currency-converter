@@ -28,8 +28,20 @@ export class AmountService {
     } 
 
     if (character.key == "Backspace"){
-      /* include way to check if character backspaced is period */
+      let lastValue = this.desiredAmount.charAt(this.desiredAmount.length -1) // Gets last character of string
+
+      // Creates new string from position 0 to -1 to remove last item
+      let newDesiredInput = this.desiredAmount.slice(0,-1)
+      this.desiredAmount = newDesiredInput
+
+      // Logic to ensure only 1 decimal point at any given time
+      if (lastValue == "."){
+        this.decimals -= 1
+      }
+
     }
+
+    console.log(this.desiredAmount)
     
   }
 }
