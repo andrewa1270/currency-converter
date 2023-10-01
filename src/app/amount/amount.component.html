@@ -1,6 +1,6 @@
 <div class="desired-input">
     <h2>GBP Value</h2>
-    <input type="number" placeholder="0.00" [(ngModel)]="test">
+    <input type="number" placeholder="0.00" [(ngModel)]="test" id="desired-amount" (keyup)="amountService.update($event)">
 </div>
 
 <div class="converted-amount">

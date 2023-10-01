@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AmountService } from '../amount.service';
 
 @Component({
   selector: 'app-amount',
@@ -8,9 +9,6 @@ import { Component } from '@angular/core';
 export class AmountComponent {
   test: number | undefined
 
-  constructor() {
-
-  }
-
+  constructor(protected amountService: AmountService) { }
 
 }
