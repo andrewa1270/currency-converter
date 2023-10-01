@@ -5,7 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class AmountService {
 
-  x = "" 
+  desiredAmount = "" 
+  decimals = 0;
   constructor() { 
   }
 
@@ -13,16 +14,21 @@ export class AmountService {
 
   // Updates value of clicked variable upon each 
   update(character: KeyboardEvent){
-    // WIP - should run this method each time GBP value changed
-    console.log(character)
-
     if (character.code.substring(0,5) === "Digit"){
-      this.x += character.key;
-      console.log(this.x);
+      this.desiredAmount += character.key;
     }
+    else if(character.code.substring(0,6) === "Period"){
+      if (this.decimals == 0){
+        this.desiredAmount += character.key
+        this.decimals += 1
+      }
+      else{
+        return
+      }
+    } 
 
     if (character.key == "Backspace"){
-      console.log("backspace clicked")
+      /* include way to check if character backspaced is period */
     }
     
   }
