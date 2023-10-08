@@ -7,7 +7,7 @@ import { AmountService } from '../amount.service';
   styleUrls: ['./amount.component.css']
 })
 export class AmountComponent implements OnInit{
-  test: number | undefined
+  convertedVal = 0
 
   constructor(protected amountService: AmountService) { }
 
@@ -15,8 +15,10 @@ export class AmountComponent implements OnInit{
       
   }
 
+  
+
   testFunc (){
-    console.log("x")
+    console.log(this.amountService.getConverted())
   }
 
 }

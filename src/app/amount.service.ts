@@ -47,12 +47,21 @@ export class AmountService {
     // Calls method that converts the value
     this.apiService.calculate(this.desiredAmount).subscribe((returnedVal) => {
       console.log("Value returned from different component " + returnedVal)
-
+      // inFuncConversion = returnedVal
       this.converted = returnedVal;
     })
 
     console.log("value when converted is called " + this.converted)
 
+  }
+
+  getConverted(){
+    return this.converted
+  }
+
+  // Adds converted value to second input bar
+  inputConverted(){
+    
   }
 
 }
