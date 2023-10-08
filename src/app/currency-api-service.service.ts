@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CurrencySelectorService } from './currency-selector.service';
-import { Observable, map } from 'rxjs';
+import { Observable, map, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CurrencyAPIServiceService {
   jsondata:any
+  totalFromSub!: number;
   total!: number;
 
   constructor(private http:HttpClient, private selectorService: CurrencySelectorService) { }
@@ -48,40 +49,33 @@ export class CurrencyAPIServiceService {
   }
 
   // Calculates converted amount
-  calculate(desiredAmount: string):number {
+  calculate(desiredAmount: string): Observable<number> {
     const selectedCurrency = this.getCurrency();
     
-    
     if (selectedCurrency == "USD"){
-      const rate = this.getExchangeRate("USD").subscribe((rate) => {
-      this.total = parseInt(desiredAmount) * rate
-      console.log(this.total)
-      })
-      //USD 
+      return this.getExchangeRate("USD").pipe(
+        map((rate) => parseInt(desiredAmount) * rate)
+      );
     }
     if (selectedCurrency == "GBP"){
-      const rate = this.getExchangeRate("GBP").subscribe((rate) => {
-      this.total = parseInt(desiredAmount) * rate
-      })
-      //GBP 
+      return this.getExchangeRate("GBP").pipe(
+        map((rate) => parseInt(desiredAmount) * rate)
+      );
     }
     if (selectedCurrency == "JPY"){
-      const rate = this.getExchangeRate("JPY").subscribe((rate) => {
-        this.total = parseInt(desiredAmount) * rate
-      })
-      //JPY 
+      return this.getExchangeRate("JPY").pipe(
+        map((rate) => parseInt(desiredAmount) * rate)
+      );
     }
-    else if (selectedCurrency == "CHF"){
-        const rate = this.getExchangeRate("CHF").subscribe((rate) => {
-          this.total = parseInt(desiredAmount) * rate
-      })
-      //CHF 
+    if (selectedCurrency == "CHF"){
+      return this.getExchangeRate("CHF").pipe(
+        map((rate) => parseInt(desiredAmount) * rate)
+      );
     }
-    else {
-      ;
-    }
-
-    return this.total
+  
+    // Handle the case where selectedCurrency is not recognized
+    return of(0); // Return a default value or handle the error as needed
   }
+  
 
 }

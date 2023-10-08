@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CurrencyAPIServiceService } from './currency-api-service.service';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +30,6 @@ export class AmountService {
       }
     } 
 
-
     if (character.key == "Backspace"){
       let lastValue = this.desiredAmount.charAt(this.desiredAmount.length -1) // Gets last character of string
 
@@ -43,12 +43,16 @@ export class AmountService {
       }
 
     }
-    //console.log(this.desiredAmount)
 
     // Calls method that converts the value
-    this.converted = this.apiService.calculate(this.desiredAmount)
-    console.log(this.converted)
+    this.apiService.calculate(this.desiredAmount).subscribe((returnedVal) => {
+      console.log("Value returned from different component " + returnedVal)
 
-    
+      this.converted = returnedVal;
+    })
+
+    console.log("value when converted is called " + this.converted)
+
   }
+
 }
