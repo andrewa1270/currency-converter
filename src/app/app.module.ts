@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { ScreenComponent } from './screen/screen.component';
 import { CurrencySelectorComponent } from './currency-selector/currency-selector.component';
 import { AmountComponent } from './amount/amount.component';
-import { ExchangeRateComponent } from './exchange-rate/exchange-rate.component';
 import { CurrencyComponent } from './currency/currency.component';
 import { FormsModule } from '@angular/forms';
 
@@ -16,7 +15,6 @@ import { FormsModule } from '@angular/forms';
     ScreenComponent,
     CurrencySelectorComponent,
     AmountComponent,
-    ExchangeRateComponent,
     CurrencyComponent
   ],
   imports: [

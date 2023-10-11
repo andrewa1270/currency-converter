@@ -48,20 +48,12 @@ export class AmountService {
     this.apiService.calculate(this.desiredAmount).subscribe((returnedVal) => {
       console.log("Value returned from different component " + returnedVal)
       // inFuncConversion = returnedVal
-      this.converted = returnedVal;
+      this.converted = parseFloat(returnedVal.toFixed(2));
     })
 
     console.log("value when converted is called " + this.converted)
 
   }
 
-  getConverted(){
-    return this.converted
-  }
-
-  // Adds converted value to second input bar
-  inputConverted(){
-    
-  }
 
 }

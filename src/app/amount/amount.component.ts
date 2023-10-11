@@ -15,10 +15,4 @@ export class AmountComponent implements OnInit{
       
   }
 
-  
-
-  testFunc (){
-    console.log(this.amountService.getConverted())
-  }
-
 }
